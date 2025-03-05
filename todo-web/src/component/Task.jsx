@@ -1,3 +1,4 @@
+import React from "react";
 import { Checkbox, Box, Text } from "@chakra-ui/react";
 
 const Task = (props) => {
