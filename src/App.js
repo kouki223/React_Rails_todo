@@ -62,6 +62,7 @@ const App = () => {
             {tasks.map((task, index) => {
               return (
                 <Task
+                  id={task.id}
                   key={index}
                   index={index}
                   name={task.name}
