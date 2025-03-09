@@ -70,6 +70,7 @@ const App = () => {
                   isDone={task.is_done}
                   toggleIsDone={toggleIsDone}
                   destroyTask={destroyTask}
+                  fetch={fetch}
                 />
               );
             })}
