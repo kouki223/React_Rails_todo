@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Text, Input, Button } from "@chakra-ui/react";
+import { Checkbox, Flex, Text, Input, Button, Box, ring } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import axios from "axios";
@@ -37,16 +37,19 @@ const Task = (props) => {
       >
       </Checkbox>
       {!isEdit ?
-      <>
-        <Text>{props.name}</Text>
-        <Button onClick={onClickEdit}>編集</Button>
-      </>
-      :
-      <Flex>
+        <Text marginLeft="8px" fontWeight="bold" marginRight="auto">{props.name}</Text>
+        :
         <Input value={editName} onChange={(e) => setEditName(e.target.value)} />
-        <Button onClick={() => onClicSave(props.id)}>保存</Button>
-        <Button onClick={onClickCancel}>キャンセル</Button>
-      </Flex>
+      }
+      {!isEdit ?
+        <Box marginRight="8px" marginLeft="auto">
+          <Button onClick={onClickEdit}>編集</Button>
+        </Box>
+        :
+        <Flex margin="10px">
+          <Button onClick={() => onClicSave(props.id)}>保存</Button>
+          <Button onClick={onClickCancel}>キャンセル</Button>
+        </Flex>
       }
       <CloseIcon onClick={() => props.destroyTask(props.id)} />
     </Flex>
