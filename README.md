@@ -73,3 +73,70 @@ React_Rails_todo
 # プロジェクト
 #React_Rails_todo
 
+<<<<<<< HEAD
+=======
+- React+Railsで作ったTodoアプリケーション
+
+- 機能
+    - タスクの登録
+    - タスクの一覧機能
+    - タスクの編集機能
+    - タスクの完了、未完了の表示（チェックリスト）
+    - 完了したタスクの削除機能
+    - 特定のタスクの削除機能
+
+- 処理の大きな流れ
+    - フロントでAPIを叩き、結果を受け取ってFEで出力する
+        - BEのcors.rbファイルでFEからのリクエスト(localhost3000)を受け取るコオとができるように定義
+
+- DE
+    - タスクの管理をできるようにしたい
+        - タスクが持つ状態
+            - タスク名
+            - タスクが作成された日時
+            - 更新された日時
+            - id
+            - 完了 or 未完了
+    - Tasksテーブル　＝＞　Taskモデル　＝＞　Tasksコントローラー
+
+- タスクの一覧機能 => fetch関数
+    - FE
+        - useEffectでコンポーネントのレンダリング時にfetch関数を発火させる
+            - 変数resに対して非同期処理でHTTPメソッドがgetにしてAPIを叩く
+                - setTasksに対してres.dataを代入する
+                    - useStateの状態変数が変更されたので差分に応じてレンダリングされるようになる
+        - CheckboxGroupコンポーネント
+            - tasks.map関数をTaskコンポーネントに対して実行する
+
+- タスクの登録機能
+    - FE
+        - 必要な要件
+            - Taskという状態を定義する
+                - Tasksというタスク全体の状態をuseStateで定義する
+                    - Tasksという状態はnameプロパティと完了、未完了を示す2つのプロパティを持つTaskの上位概念
+                        - Taskという概念の中には
+                            - name
+                            - done
+            - タスクの作成をしたい場合にAPIをPOSTメソッドで叩けるようにする
+                - 関数に切り出す
+            - 入力フィールドを定義する
+                - onChange関数を紐づけて入力に応じてイベントが発生するようにする
+        - 必要な処理
+            - useStateを定義する
+                - name
+                    - TaskとしてAPIを叩く時に登録したいタスク名
+                - Tasks
+                    - Taskとして保存した集合体
+        - Input要素(入力フィールドを用意する)
+            - onChange関数を紐づけてsetNameを発火させる
+                - onChange関数
+                    - value => name
+                    - setName(e.target.value)
+        - Button要素を作成する　＝＞　APIを叩く関数を紐づける
+            - createTask
+                - axiosを使って非同期処理でPOSTメソッドでAPIを叩く
+                    - 第2引数にはnameプロパティにnameを、is_doneプロパティに初期値としてfalseを渡す
+                - setNameに空文字を渡して関数をクリアにする
+                - fetch関数を発火させせて変数tasksの状態を更新する
+                    - コンポーネントのレンダリングを起こしてtasksに対して再度map関数を実行してタスクリストを更新する
+>>>>>>> dd5bcd6 (アウトプット)
