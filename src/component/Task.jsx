@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Text, Input, Button, Box, ring } from "@chakra-ui/react";
+import { Checkbox, Flex, Text, Input, Button, Box,} from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import axios from "axios";
@@ -12,7 +12,7 @@ const Task = (props) => {
     setIsEdit(true)
   }
 
-  const onClicSave = async (id) => {
+  const onClickSave = async (id) => {
     console.log("保存ボタンをクリックしました")
     await axios.put(`http://localhost:3010/tasks/edit/${id}`,{name: editName})
     setIsEdit(false)
@@ -47,7 +47,7 @@ const Task = (props) => {
         </Box>
         :
         <Flex margin="10px">
-          <Button onClick={() => onClicSave(props.id)}>保存</Button>
+          <Button onClick={() => onClickSave(props.id)}>保存</Button>
           <Button onClick={onClickCancel}>キャンセル</Button>
         </Flex>
       }
