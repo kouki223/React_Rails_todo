@@ -73,8 +73,6 @@ React_Rails_todo
 # プロジェクト
 #React_Rails_todo
 
-<<<<<<< HEAD
-=======
 - React+Railsで作ったTodoアプリケーション
 
 - 機能
@@ -139,4 +137,4 @@ React_Rails_todo
                 - setNameに空文字を渡して関数をクリアにする
                 - fetch関数を発火させせて変数tasksの状態を更新する
                     - コンポーネントのレンダリングを起こしてtasksに対して再度map関数を実行してタスクリストを更新する
->>>>>>> dd5bcd6 (アウトプット)
+
